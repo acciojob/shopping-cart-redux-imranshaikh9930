@@ -27,7 +27,7 @@ const App = () => {
     dispatch({type:"INCREASE_QUANTITY",payload:itemId})
   };
   const decreaseQuant = (itemId)=>{
-    dispatch({type:"DECREASE_QUANTITY",payload:itemId})
+    dispatch({type:"DECREASE_QUANTITY",payload:itemId});
   };
 
   const removeWishList = (itemid)=>{
@@ -60,12 +60,12 @@ const App = () => {
             <p>{item.address}</p>
             <h4>{item.price}$</h4>
             <h1>Quantity 
-              <button onClick={()=>increaseQuant(item.id)}>+</button>
+              <button onClick={()=>increaseQuant(item)}>+</button>
               <p>{item.quantity}</p>
-              <button onClick={()=>decreaseQuant(item.id)}>-</button>
+              <button onClick={()=>decreaseQuant(item)}>-</button>
               
             </h1>
-            <button onClick={()=>removeCart(item.id)}>Remove from Cart</button>
+            <button onClick={()=>removeCart(item)}>Remove from Cart</button>
           </div>
         ))}
 
@@ -82,6 +82,8 @@ const App = () => {
           ))
         }
 
+        <h2>Total Cost</h2>
+        {state.totalCost}
     </div>
   )
 }
